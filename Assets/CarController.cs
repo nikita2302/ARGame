@@ -36,11 +36,14 @@ public class CarController : MonoBehaviour
         }
     }
 
-    public void reset() {
+    public void Reset() {
         print ("Resetting original position");
-        transform.eulerAngles = new Vector3(x, 0, y);
-        rb.transform.position = startPosition;
-        rb.transform.rotation = startRotation; 
+
+        //This just rotates the car. Figure out how to bring the car in the center
+        transform.eulerAngles = new Vector3(x, 0.0f, y);
+        //transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
     }
 }
 
