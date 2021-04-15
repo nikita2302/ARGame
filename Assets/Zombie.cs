@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+   // Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,5 +20,13 @@ public class Zombie : MonoBehaviour
 
     public void RemoveZombie() {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Car")
+        {
+            RemoveZombie();
+        }
     }
 }
